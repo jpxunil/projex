@@ -1,0 +1,262 @@
+"use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var __esDecorate = (this && this.__esDecorate) || function (ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
+    function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
+    var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
+    var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
+    var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+    var _, done = false;
+    for (var i = decorators.length - 1; i >= 0; i--) {
+        var context = {};
+        for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+        for (var p in contextIn.access) context.access[p] = contextIn.access[p];
+        context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
+        var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+        if (kind === "accessor") {
+            if (result === void 0) continue;
+            if (result === null || typeof result !== "object") throw new TypeError("Object expected");
+            if (_ = accept(result.get)) descriptor.get = _;
+            if (_ = accept(result.set)) descriptor.set = _;
+            if (_ = accept(result.init)) initializers.unshift(_);
+        }
+        else if (_ = accept(result)) {
+            if (kind === "field") initializers.unshift(_);
+            else descriptor[key] = _;
+        }
+    }
+    if (target) Object.defineProperty(target, contextIn.name, descriptor);
+    done = true;
+};
+var __runInitializers = (this && this.__runInitializers) || function (thisArg, initializers, value) {
+    var useValue = arguments.length > 2;
+    for (var i = 0; i < initializers.length; i++) {
+        value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+    }
+    return useValue ? value : void 0;
+};
+var __setFunctionName = (this && this.__setFunctionName) || function (f, name, prefix) {
+    if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
+    return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var sequelize_typescript_1 = require("sequelize-typescript");
+var CampaignShipping_1 = require("./CampaignShipping");
+var Company_1 = require("./Company");
+var ContactList_1 = require("./ContactList");
+var Whatsapp_1 = require("./Whatsapp");
+var Files_1 = require("./Files");
+var Campaign = function () {
+    var _classDecorators = [(0, sequelize_typescript_1.Table)({ tableName: "Campaigns" })];
+    var _classDescriptor;
+    var _classExtraInitializers = [];
+    var _classThis;
+    var _classSuper = sequelize_typescript_1.Model;
+    var _id_decorators;
+    var _id_initializers = [];
+    var _id_extraInitializers = [];
+    var _name_decorators;
+    var _name_initializers = [];
+    var _name_extraInitializers = [];
+    var _message1_decorators;
+    var _message1_initializers = [];
+    var _message1_extraInitializers = [];
+    var _message2_decorators;
+    var _message2_initializers = [];
+    var _message2_extraInitializers = [];
+    var _message3_decorators;
+    var _message3_initializers = [];
+    var _message3_extraInitializers = [];
+    var _message4_decorators;
+    var _message4_initializers = [];
+    var _message4_extraInitializers = [];
+    var _message5_decorators;
+    var _message5_initializers = [];
+    var _message5_extraInitializers = [];
+    var _confirmationMessage1_decorators;
+    var _confirmationMessage1_initializers = [];
+    var _confirmationMessage1_extraInitializers = [];
+    var _confirmationMessage2_decorators;
+    var _confirmationMessage2_initializers = [];
+    var _confirmationMessage2_extraInitializers = [];
+    var _confirmationMessage3_decorators;
+    var _confirmationMessage3_initializers = [];
+    var _confirmationMessage3_extraInitializers = [];
+    var _confirmationMessage4_decorators;
+    var _confirmationMessage4_initializers = [];
+    var _confirmationMessage4_extraInitializers = [];
+    var _confirmationMessage5_decorators;
+    var _confirmationMessage5_initializers = [];
+    var _confirmationMessage5_extraInitializers = [];
+    var _status_decorators;
+    var _status_initializers = [];
+    var _status_extraInitializers = [];
+    var _confirmation_decorators;
+    var _confirmation_initializers = [];
+    var _confirmation_extraInitializers = [];
+    var _mediaPath_decorators;
+    var _mediaPath_initializers = [];
+    var _mediaPath_extraInitializers = [];
+    var _mediaName_decorators;
+    var _mediaName_initializers = [];
+    var _mediaName_extraInitializers = [];
+    var _scheduledAt_decorators;
+    var _scheduledAt_initializers = [];
+    var _scheduledAt_extraInitializers = [];
+    var _completedAt_decorators;
+    var _completedAt_initializers = [];
+    var _completedAt_extraInitializers = [];
+    var _createdAt_decorators;
+    var _createdAt_initializers = [];
+    var _createdAt_extraInitializers = [];
+    var _updatedAt_decorators;
+    var _updatedAt_initializers = [];
+    var _updatedAt_extraInitializers = [];
+    var _companyId_decorators;
+    var _companyId_initializers = [];
+    var _companyId_extraInitializers = [];
+    var _company_decorators;
+    var _company_initializers = [];
+    var _company_extraInitializers = [];
+    var _contactListId_decorators;
+    var _contactListId_initializers = [];
+    var _contactListId_extraInitializers = [];
+    var _contactList_decorators;
+    var _contactList_initializers = [];
+    var _contactList_extraInitializers = [];
+    var _whatsappId_decorators;
+    var _whatsappId_initializers = [];
+    var _whatsappId_extraInitializers = [];
+    var _whatsapp_decorators;
+    var _whatsapp_initializers = [];
+    var _whatsapp_extraInitializers = [];
+    var _fileListId_decorators;
+    var _fileListId_initializers = [];
+    var _fileListId_extraInitializers = [];
+    var _fileList_decorators;
+    var _fileList_initializers = [];
+    var _fileList_extraInitializers = [];
+    var _shipping_decorators;
+    var _shipping_initializers = [];
+    var _shipping_extraInitializers = [];
+    var Campaign = _classThis = /** @class */ (function (_super) {
+        __extends(Campaign_1, _super);
+        function Campaign_1() {
+            var _this = _super !== null && _super.apply(this, arguments) || this;
+            _this.id = __runInitializers(_this, _id_initializers, void 0);
+            _this.name = (__runInitializers(_this, _id_extraInitializers), __runInitializers(_this, _name_initializers, void 0));
+            _this.message1 = (__runInitializers(_this, _name_extraInitializers), __runInitializers(_this, _message1_initializers, void 0));
+            _this.message2 = (__runInitializers(_this, _message1_extraInitializers), __runInitializers(_this, _message2_initializers, void 0));
+            _this.message3 = (__runInitializers(_this, _message2_extraInitializers), __runInitializers(_this, _message3_initializers, void 0));
+            _this.message4 = (__runInitializers(_this, _message3_extraInitializers), __runInitializers(_this, _message4_initializers, void 0));
+            _this.message5 = (__runInitializers(_this, _message4_extraInitializers), __runInitializers(_this, _message5_initializers, void 0));
+            _this.confirmationMessage1 = (__runInitializers(_this, _message5_extraInitializers), __runInitializers(_this, _confirmationMessage1_initializers, void 0));
+            _this.confirmationMessage2 = (__runInitializers(_this, _confirmationMessage1_extraInitializers), __runInitializers(_this, _confirmationMessage2_initializers, void 0));
+            _this.confirmationMessage3 = (__runInitializers(_this, _confirmationMessage2_extraInitializers), __runInitializers(_this, _confirmationMessage3_initializers, void 0));
+            _this.confirmationMessage4 = (__runInitializers(_this, _confirmationMessage3_extraInitializers), __runInitializers(_this, _confirmationMessage4_initializers, void 0));
+            _this.confirmationMessage5 = (__runInitializers(_this, _confirmationMessage4_extraInitializers), __runInitializers(_this, _confirmationMessage5_initializers, void 0));
+            _this.status = (__runInitializers(_this, _confirmationMessage5_extraInitializers), __runInitializers(_this, _status_initializers, void 0)); // INATIVA, PROGRAMADA, EM_ANDAMENTO, CANCELADA, FINALIZADA
+            _this.confirmation = (__runInitializers(_this, _status_extraInitializers), __runInitializers(_this, _confirmation_initializers, void 0));
+            _this.mediaPath = (__runInitializers(_this, _confirmation_extraInitializers), __runInitializers(_this, _mediaPath_initializers, void 0));
+            _this.mediaName = (__runInitializers(_this, _mediaPath_extraInitializers), __runInitializers(_this, _mediaName_initializers, void 0));
+            _this.scheduledAt = (__runInitializers(_this, _mediaName_extraInitializers), __runInitializers(_this, _scheduledAt_initializers, void 0));
+            _this.completedAt = (__runInitializers(_this, _scheduledAt_extraInitializers), __runInitializers(_this, _completedAt_initializers, void 0));
+            _this.createdAt = (__runInitializers(_this, _completedAt_extraInitializers), __runInitializers(_this, _createdAt_initializers, void 0));
+            _this.updatedAt = (__runInitializers(_this, _createdAt_extraInitializers), __runInitializers(_this, _updatedAt_initializers, void 0));
+            _this.companyId = (__runInitializers(_this, _updatedAt_extraInitializers), __runInitializers(_this, _companyId_initializers, void 0));
+            _this.company = (__runInitializers(_this, _companyId_extraInitializers), __runInitializers(_this, _company_initializers, void 0));
+            _this.contactListId = (__runInitializers(_this, _company_extraInitializers), __runInitializers(_this, _contactListId_initializers, void 0));
+            _this.contactList = (__runInitializers(_this, _contactListId_extraInitializers), __runInitializers(_this, _contactList_initializers, void 0));
+            _this.whatsappId = (__runInitializers(_this, _contactList_extraInitializers), __runInitializers(_this, _whatsappId_initializers, void 0));
+            _this.whatsapp = (__runInitializers(_this, _whatsappId_extraInitializers), __runInitializers(_this, _whatsapp_initializers, void 0));
+            _this.fileListId = (__runInitializers(_this, _whatsapp_extraInitializers), __runInitializers(_this, _fileListId_initializers, void 0));
+            _this.fileList = (__runInitializers(_this, _fileListId_extraInitializers), __runInitializers(_this, _fileList_initializers, void 0));
+            _this.shipping = (__runInitializers(_this, _fileList_extraInitializers), __runInitializers(_this, _shipping_initializers, void 0));
+            __runInitializers(_this, _shipping_extraInitializers);
+            return _this;
+        }
+        return Campaign_1;
+    }(_classSuper));
+    __setFunctionName(_classThis, "Campaign");
+    (function () {
+        var _a;
+        var _metadata = typeof Symbol === "function" && Symbol.metadata ? Object.create((_a = _classSuper[Symbol.metadata]) !== null && _a !== void 0 ? _a : null) : void 0;
+        _id_decorators = [sequelize_typescript_1.PrimaryKey, sequelize_typescript_1.AutoIncrement, sequelize_typescript_1.Column];
+        _name_decorators = [sequelize_typescript_1.Column];
+        _message1_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _message2_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _message3_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _message4_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _message5_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _confirmationMessage1_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _confirmationMessage2_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _confirmationMessage3_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _confirmationMessage4_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _confirmationMessage5_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "" })];
+        _status_decorators = [(0, sequelize_typescript_1.Column)({ defaultValue: "INATIVA" })];
+        _confirmation_decorators = [sequelize_typescript_1.Column];
+        _mediaPath_decorators = [sequelize_typescript_1.Column];
+        _mediaName_decorators = [sequelize_typescript_1.Column];
+        _scheduledAt_decorators = [sequelize_typescript_1.Column];
+        _completedAt_decorators = [sequelize_typescript_1.Column];
+        _createdAt_decorators = [sequelize_typescript_1.CreatedAt];
+        _updatedAt_decorators = [sequelize_typescript_1.UpdatedAt];
+        _companyId_decorators = [(0, sequelize_typescript_1.ForeignKey)(function () { return Company_1.default; }), sequelize_typescript_1.Column];
+        _company_decorators = [(0, sequelize_typescript_1.BelongsTo)(function () { return Company_1.default; })];
+        _contactListId_decorators = [(0, sequelize_typescript_1.ForeignKey)(function () { return ContactList_1.default; }), sequelize_typescript_1.Column];
+        _contactList_decorators = [(0, sequelize_typescript_1.BelongsTo)(function () { return ContactList_1.default; })];
+        _whatsappId_decorators = [(0, sequelize_typescript_1.ForeignKey)(function () { return Whatsapp_1.default; }), sequelize_typescript_1.Column];
+        _whatsapp_decorators = [(0, sequelize_typescript_1.BelongsTo)(function () { return Whatsapp_1.default; })];
+        _fileListId_decorators = [(0, sequelize_typescript_1.ForeignKey)(function () { return Files_1.default; }), sequelize_typescript_1.Column];
+        _fileList_decorators = [(0, sequelize_typescript_1.BelongsTo)(function () { return Files_1.default; })];
+        _shipping_decorators = [(0, sequelize_typescript_1.HasMany)(function () { return CampaignShipping_1.default; })];
+        __esDecorate(null, null, _id_decorators, { kind: "field", name: "id", static: false, private: false, access: { has: function (obj) { return "id" in obj; }, get: function (obj) { return obj.id; }, set: function (obj, value) { obj.id = value; } }, metadata: _metadata }, _id_initializers, _id_extraInitializers);
+        __esDecorate(null, null, _name_decorators, { kind: "field", name: "name", static: false, private: false, access: { has: function (obj) { return "name" in obj; }, get: function (obj) { return obj.name; }, set: function (obj, value) { obj.name = value; } }, metadata: _metadata }, _name_initializers, _name_extraInitializers);
+        __esDecorate(null, null, _message1_decorators, { kind: "field", name: "message1", static: false, private: false, access: { has: function (obj) { return "message1" in obj; }, get: function (obj) { return obj.message1; }, set: function (obj, value) { obj.message1 = value; } }, metadata: _metadata }, _message1_initializers, _message1_extraInitializers);
+        __esDecorate(null, null, _message2_decorators, { kind: "field", name: "message2", static: false, private: false, access: { has: function (obj) { return "message2" in obj; }, get: function (obj) { return obj.message2; }, set: function (obj, value) { obj.message2 = value; } }, metadata: _metadata }, _message2_initializers, _message2_extraInitializers);
+        __esDecorate(null, null, _message3_decorators, { kind: "field", name: "message3", static: false, private: false, access: { has: function (obj) { return "message3" in obj; }, get: function (obj) { return obj.message3; }, set: function (obj, value) { obj.message3 = value; } }, metadata: _metadata }, _message3_initializers, _message3_extraInitializers);
+        __esDecorate(null, null, _message4_decorators, { kind: "field", name: "message4", static: false, private: false, access: { has: function (obj) { return "message4" in obj; }, get: function (obj) { return obj.message4; }, set: function (obj, value) { obj.message4 = value; } }, metadata: _metadata }, _message4_initializers, _message4_extraInitializers);
+        __esDecorate(null, null, _message5_decorators, { kind: "field", name: "message5", static: false, private: false, access: { has: function (obj) { return "message5" in obj; }, get: function (obj) { return obj.message5; }, set: function (obj, value) { obj.message5 = value; } }, metadata: _metadata }, _message5_initializers, _message5_extraInitializers);
+        __esDecorate(null, null, _confirmationMessage1_decorators, { kind: "field", name: "confirmationMessage1", static: false, private: false, access: { has: function (obj) { return "confirmationMessage1" in obj; }, get: function (obj) { return obj.confirmationMessage1; }, set: function (obj, value) { obj.confirmationMessage1 = value; } }, metadata: _metadata }, _confirmationMessage1_initializers, _confirmationMessage1_extraInitializers);
+        __esDecorate(null, null, _confirmationMessage2_decorators, { kind: "field", name: "confirmationMessage2", static: false, private: false, access: { has: function (obj) { return "confirmationMessage2" in obj; }, get: function (obj) { return obj.confirmationMessage2; }, set: function (obj, value) { obj.confirmationMessage2 = value; } }, metadata: _metadata }, _confirmationMessage2_initializers, _confirmationMessage2_extraInitializers);
+        __esDecorate(null, null, _confirmationMessage3_decorators, { kind: "field", name: "confirmationMessage3", static: false, private: false, access: { has: function (obj) { return "confirmationMessage3" in obj; }, get: function (obj) { return obj.confirmationMessage3; }, set: function (obj, value) { obj.confirmationMessage3 = value; } }, metadata: _metadata }, _confirmationMessage3_initializers, _confirmationMessage3_extraInitializers);
+        __esDecorate(null, null, _confirmationMessage4_decorators, { kind: "field", name: "confirmationMessage4", static: false, private: false, access: { has: function (obj) { return "confirmationMessage4" in obj; }, get: function (obj) { return obj.confirmationMessage4; }, set: function (obj, value) { obj.confirmationMessage4 = value; } }, metadata: _metadata }, _confirmationMessage4_initializers, _confirmationMessage4_extraInitializers);
+        __esDecorate(null, null, _confirmationMessage5_decorators, { kind: "field", name: "confirmationMessage5", static: false, private: false, access: { has: function (obj) { return "confirmationMessage5" in obj; }, get: function (obj) { return obj.confirmationMessage5; }, set: function (obj, value) { obj.confirmationMessage5 = value; } }, metadata: _metadata }, _confirmationMessage5_initializers, _confirmationMessage5_extraInitializers);
+        __esDecorate(null, null, _status_decorators, { kind: "field", name: "status", static: false, private: false, access: { has: function (obj) { return "status" in obj; }, get: function (obj) { return obj.status; }, set: function (obj, value) { obj.status = value; } }, metadata: _metadata }, _status_initializers, _status_extraInitializers);
+        __esDecorate(null, null, _confirmation_decorators, { kind: "field", name: "confirmation", static: false, private: false, access: { has: function (obj) { return "confirmation" in obj; }, get: function (obj) { return obj.confirmation; }, set: function (obj, value) { obj.confirmation = value; } }, metadata: _metadata }, _confirmation_initializers, _confirmation_extraInitializers);
+        __esDecorate(null, null, _mediaPath_decorators, { kind: "field", name: "mediaPath", static: false, private: false, access: { has: function (obj) { return "mediaPath" in obj; }, get: function (obj) { return obj.mediaPath; }, set: function (obj, value) { obj.mediaPath = value; } }, metadata: _metadata }, _mediaPath_initializers, _mediaPath_extraInitializers);
+        __esDecorate(null, null, _mediaName_decorators, { kind: "field", name: "mediaName", static: false, private: false, access: { has: function (obj) { return "mediaName" in obj; }, get: function (obj) { return obj.mediaName; }, set: function (obj, value) { obj.mediaName = value; } }, metadata: _metadata }, _mediaName_initializers, _mediaName_extraInitializers);
+        __esDecorate(null, null, _scheduledAt_decorators, { kind: "field", name: "scheduledAt", static: false, private: false, access: { has: function (obj) { return "scheduledAt" in obj; }, get: function (obj) { return obj.scheduledAt; }, set: function (obj, value) { obj.scheduledAt = value; } }, metadata: _metadata }, _scheduledAt_initializers, _scheduledAt_extraInitializers);
+        __esDecorate(null, null, _completedAt_decorators, { kind: "field", name: "completedAt", static: false, private: false, access: { has: function (obj) { return "completedAt" in obj; }, get: function (obj) { return obj.completedAt; }, set: function (obj, value) { obj.completedAt = value; } }, metadata: _metadata }, _completedAt_initializers, _completedAt_extraInitializers);
+        __esDecorate(null, null, _createdAt_decorators, { kind: "field", name: "createdAt", static: false, private: false, access: { has: function (obj) { return "createdAt" in obj; }, get: function (obj) { return obj.createdAt; }, set: function (obj, value) { obj.createdAt = value; } }, metadata: _metadata }, _createdAt_initializers, _createdAt_extraInitializers);
+        __esDecorate(null, null, _updatedAt_decorators, { kind: "field", name: "updatedAt", static: false, private: false, access: { has: function (obj) { return "updatedAt" in obj; }, get: function (obj) { return obj.updatedAt; }, set: function (obj, value) { obj.updatedAt = value; } }, metadata: _metadata }, _updatedAt_initializers, _updatedAt_extraInitializers);
+        __esDecorate(null, null, _companyId_decorators, { kind: "field", name: "companyId", static: false, private: false, access: { has: function (obj) { return "companyId" in obj; }, get: function (obj) { return obj.companyId; }, set: function (obj, value) { obj.companyId = value; } }, metadata: _metadata }, _companyId_initializers, _companyId_extraInitializers);
+        __esDecorate(null, null, _company_decorators, { kind: "field", name: "company", static: false, private: false, access: { has: function (obj) { return "company" in obj; }, get: function (obj) { return obj.company; }, set: function (obj, value) { obj.company = value; } }, metadata: _metadata }, _company_initializers, _company_extraInitializers);
+        __esDecorate(null, null, _contactListId_decorators, { kind: "field", name: "contactListId", static: false, private: false, access: { has: function (obj) { return "contactListId" in obj; }, get: function (obj) { return obj.contactListId; }, set: function (obj, value) { obj.contactListId = value; } }, metadata: _metadata }, _contactListId_initializers, _contactListId_extraInitializers);
+        __esDecorate(null, null, _contactList_decorators, { kind: "field", name: "contactList", static: false, private: false, access: { has: function (obj) { return "contactList" in obj; }, get: function (obj) { return obj.contactList; }, set: function (obj, value) { obj.contactList = value; } }, metadata: _metadata }, _contactList_initializers, _contactList_extraInitializers);
+        __esDecorate(null, null, _whatsappId_decorators, { kind: "field", name: "whatsappId", static: false, private: false, access: { has: function (obj) { return "whatsappId" in obj; }, get: function (obj) { return obj.whatsappId; }, set: function (obj, value) { obj.whatsappId = value; } }, metadata: _metadata }, _whatsappId_initializers, _whatsappId_extraInitializers);
+        __esDecorate(null, null, _whatsapp_decorators, { kind: "field", name: "whatsapp", static: false, private: false, access: { has: function (obj) { return "whatsapp" in obj; }, get: function (obj) { return obj.whatsapp; }, set: function (obj, value) { obj.whatsapp = value; } }, metadata: _metadata }, _whatsapp_initializers, _whatsapp_extraInitializers);
+        __esDecorate(null, null, _fileListId_decorators, { kind: "field", name: "fileListId", static: false, private: false, access: { has: function (obj) { return "fileListId" in obj; }, get: function (obj) { return obj.fileListId; }, set: function (obj, value) { obj.fileListId = value; } }, metadata: _metadata }, _fileListId_initializers, _fileListId_extraInitializers);
+        __esDecorate(null, null, _fileList_decorators, { kind: "field", name: "fileList", static: false, private: false, access: { has: function (obj) { return "fileList" in obj; }, get: function (obj) { return obj.fileList; }, set: function (obj, value) { obj.fileList = value; } }, metadata: _metadata }, _fileList_initializers, _fileList_extraInitializers);
+        __esDecorate(null, null, _shipping_decorators, { kind: "field", name: "shipping", static: false, private: false, access: { has: function (obj) { return "shipping" in obj; }, get: function (obj) { return obj.shipping; }, set: function (obj, value) { obj.shipping = value; } }, metadata: _metadata }, _shipping_initializers, _shipping_extraInitializers);
+        __esDecorate(null, _classDescriptor = { value: _classThis }, _classDecorators, { kind: "class", name: _classThis.name, metadata: _metadata }, null, _classExtraInitializers);
+        Campaign = _classThis = _classDescriptor.value;
+        if (_metadata) Object.defineProperty(_classThis, Symbol.metadata, { enumerable: true, configurable: true, writable: true, value: _metadata });
+        __runInitializers(_classThis, _classExtraInitializers);
+    })();
+    return Campaign = _classThis;
+}();
+exports.default = Campaign;

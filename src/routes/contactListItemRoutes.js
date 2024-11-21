@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var ContactListItemController = require("../controllers/ContactListItemController");
+var routes = express_1.default.Router();
+routes.get("/contact-list-items/list", isAuth_1.default, ContactListItemController.findList);
+routes.get("/contact-list-items", isAuth_1.default, ContactListItemController.index);
+routes.get("/contact-list-items/:id", isAuth_1.default, ContactListItemController.show);
+routes.post("/contact-list-items", isAuth_1.default, ContactListItemController.store);
+routes.put("/contact-list-items/:id", isAuth_1.default, ContactListItemController.update);
+routes.delete("/contact-list-items/:id", isAuth_1.default, ContactListItemController.remove);
+exports.default = routes;

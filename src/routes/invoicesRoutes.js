@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var InvoicesController = require("../controllers/InvoicesController");
+var invoiceRoutes = express_1.default.Router();
+invoiceRoutes.get("/invoices", isAuth_1.default, InvoicesController.index);
+invoiceRoutes.get("/invoices/list", InvoicesController.list);
+invoiceRoutes.get("/invoices/all", isAuth_1.default, InvoicesController.list);
+invoiceRoutes.get("/invoices/:Invoiceid", isAuth_1.default, InvoicesController.show);
+invoiceRoutes.put("/invoices/:id", isAuth_1.default, InvoicesController.update);
+exports.default = invoiceRoutes;

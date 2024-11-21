@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var isSuper_1 = require("../middleware/isSuper");
+var PlanController = require("../controllers/PlanController");
+var planRoutes = express_1.default.Router();
+planRoutes.get("/plans", isAuth_1.default, PlanController.index);
+planRoutes.get("/plans/list", PlanController.list);
+planRoutes.get("/plans/all", PlanController.list);
+planRoutes.get("/plans/:id", isAuth_1.default, PlanController.show);
+planRoutes.post("/plans", isAuth_1.default, isSuper_1.default, PlanController.store);
+planRoutes.put("/plans/:id", isAuth_1.default, isSuper_1.default, PlanController.update);
+planRoutes.delete("/plans/:id", isAuth_1.default, isSuper_1.default, PlanController.remove);
+exports.default = planRoutes;

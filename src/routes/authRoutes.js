@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var SessionController = require("../controllers/SessionController");
+var UserController = require("../controllers/UserController");
+var isAuth_1 = require("../middleware/isAuth");
+var envTokenAuth_1 = require("../middleware/envTokenAuth");
+var authRoutes = (0, express_1.Router)();
+authRoutes.post("/signup", envTokenAuth_1.default, UserController.store);
+authRoutes.post("/login", SessionController.store);
+authRoutes.post("/refresh_token", SessionController.update);
+authRoutes.delete("/logout", isAuth_1.default, SessionController.remove);
+authRoutes.get("/me", isAuth_1.default, SessionController.me);
+exports.default = authRoutes;

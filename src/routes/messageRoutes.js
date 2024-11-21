@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var multer_1 = require("multer");
+var isAuth_1 = require("../middleware/isAuth");
+var upload_1 = require("../config/upload");
+var tokenAuth_1 = require("../middleware/tokenAuth");
+var MessageController = require("../controllers/MessageController");
+var messageRoutes = (0, express_1.Router)();
+var upload = (0, multer_1.default)(upload_1.default);
+messageRoutes.get("/messages/:ticketId", isAuth_1.default, MessageController.index);
+messageRoutes.post("/messages/:ticketId", isAuth_1.default, upload.array("medias"), MessageController.store);
+messageRoutes.delete("/messages/:messageId", isAuth_1.default, MessageController.remove);
+messageRoutes.post("/api/messages/send", tokenAuth_1.default, upload.array("medias"), MessageController.send);
+exports.default = messageRoutes;

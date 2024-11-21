@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var QueueController = require("../controllers/QueueController");
+var queueRoutes = (0, express_1.Router)();
+queueRoutes.get("/queue", isAuth_1.default, QueueController.index);
+queueRoutes.post("/queue", isAuth_1.default, QueueController.store);
+queueRoutes.get("/queue/:queueId", isAuth_1.default, QueueController.show);
+queueRoutes.put("/queue/:queueId", isAuth_1.default, QueueController.update);
+queueRoutes.delete("/queue/:queueId", isAuth_1.default, QueueController.remove);
+exports.default = queueRoutes;

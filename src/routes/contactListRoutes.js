@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var upload_1 = require("../config/upload");
+var ContactListController = require("../controllers/ContactListController");
+var multer_1 = require("multer");
+var routes = express_1.default.Router();
+var upload = (0, multer_1.default)(upload_1.default);
+routes.get("/contact-lists/list", isAuth_1.default, ContactListController.findList);
+routes.get("/contact-lists", isAuth_1.default, ContactListController.index);
+routes.get("/contact-lists/:id", isAuth_1.default, ContactListController.show);
+routes.post("/contact-lists", isAuth_1.default, ContactListController.store);
+routes.post("/contact-lists/:id/upload", isAuth_1.default, upload.array("file"), ContactListController.upload);
+routes.put("/contact-lists/:id", isAuth_1.default, ContactListController.update);
+routes.delete("/contact-lists/:id", isAuth_1.default, ContactListController.remove);
+exports.default = routes;

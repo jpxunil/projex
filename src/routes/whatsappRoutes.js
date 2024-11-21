@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var WhatsAppController = require("../controllers/WhatsAppController");
+var whatsappRoutes = express_1.default.Router();
+whatsappRoutes.get("/whatsapp/", isAuth_1.default, WhatsAppController.index);
+whatsappRoutes.post("/whatsapp/", isAuth_1.default, WhatsAppController.store);
+whatsappRoutes.get("/whatsapp/:whatsappId", isAuth_1.default, WhatsAppController.show);
+whatsappRoutes.put("/whatsapp/:whatsappId", isAuth_1.default, WhatsAppController.update);
+whatsappRoutes.delete("/whatsapp/:whatsappId", isAuth_1.default, WhatsAppController.remove);
+exports.default = whatsappRoutes;

@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var TicketNoteController = require("../controllers/TicketNoteController");
+var ticketNoteRoutes = express_1.default.Router();
+ticketNoteRoutes.get("/ticket-notes/list", isAuth_1.default, TicketNoteController.findFilteredList);
+ticketNoteRoutes.get("/ticket-notes", isAuth_1.default, TicketNoteController.index);
+ticketNoteRoutes.get("/ticket-notes/:id", isAuth_1.default, TicketNoteController.show);
+ticketNoteRoutes.post("/ticket-notes", isAuth_1.default, TicketNoteController.store);
+ticketNoteRoutes.put("/ticket-notes/:id", isAuth_1.default, TicketNoteController.update);
+ticketNoteRoutes.delete("/ticket-notes/:id", isAuth_1.default, TicketNoteController.remove);
+exports.default = ticketNoteRoutes;

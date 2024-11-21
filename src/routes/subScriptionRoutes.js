@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var SubscriptionController = require("../controllers/SubscriptionController");
+var subscriptionRoutes = express_1.default.Router();
+subscriptionRoutes.post("/subscription", isAuth_1.default, SubscriptionController.createSubscription);
+subscriptionRoutes.post("/subscription/create/webhook", SubscriptionController.createWebhook);
+subscriptionRoutes.post("/subscription/webhook/:type?", SubscriptionController.webhook);
+exports.default = subscriptionRoutes;

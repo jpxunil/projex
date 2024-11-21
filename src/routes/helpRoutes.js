@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var isSuper_1 = require("../middleware/isSuper");
+var HelpController = require("../controllers/HelpController");
+var routes = express_1.default.Router();
+routes.get("/helps/list", isAuth_1.default, HelpController.findList);
+routes.get("/helps", isAuth_1.default, HelpController.index);
+routes.get("/helps/:id", isAuth_1.default, HelpController.show);
+routes.post("/helps", isAuth_1.default, isSuper_1.default, HelpController.store);
+routes.put("/helps/:id", isAuth_1.default, isSuper_1.default, HelpController.update);
+routes.delete("/helps/:id", isAuth_1.default, isSuper_1.default, HelpController.remove);
+exports.default = routes;

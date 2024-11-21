@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var upload_1 = require("../config/upload");
+var multer_1 = require("multer");
+var FilesController = require("../controllers/FilesController");
+var upload = (0, multer_1.default)(upload_1.default);
+var filesRoutes = express_1.default.Router();
+filesRoutes.get("/files/list", isAuth_1.default, FilesController.list);
+filesRoutes.get("/files", isAuth_1.default, FilesController.index);
+filesRoutes.post("/files", isAuth_1.default, FilesController.store);
+filesRoutes.put("/files/:fileId", isAuth_1.default, FilesController.update);
+filesRoutes.get("/files/:fileId", isAuth_1.default, FilesController.show);
+filesRoutes.delete("/files/:fileId", isAuth_1.default, FilesController.remove);
+filesRoutes.delete("/files", isAuth_1.default, FilesController.removeAll);
+filesRoutes.post("/files/uploadList/:fileListId", isAuth_1.default, upload.array("files"), FilesController.uploadMedias);
+exports.default = filesRoutes;

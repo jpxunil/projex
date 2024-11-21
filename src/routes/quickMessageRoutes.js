@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var QuickMessageController = require("../controllers/QuickMessageController");
+var multer_1 = require("multer");
+var upload_1 = require("../config/upload");
+var upload = (0, multer_1.default)(upload_1.default);
+var routes = express_1.default.Router();
+routes.get("/quick-messages/list", isAuth_1.default, QuickMessageController.findList);
+routes.get("/quick-messages", isAuth_1.default, QuickMessageController.index);
+routes.get("/quick-messages/:id", isAuth_1.default, QuickMessageController.show);
+routes.post("/quick-messages", isAuth_1.default, QuickMessageController.store);
+routes.put("/quick-messages/:id", isAuth_1.default, QuickMessageController.update);
+routes.delete("/quick-messages/:id", isAuth_1.default, QuickMessageController.remove);
+routes.post("/quick-messages/:id/media-upload", isAuth_1.default, upload.array("file"), QuickMessageController.mediaUpload);
+routes.delete("/quick-messages/:id/media-upload", isAuth_1.default, QuickMessageController.deleteMedia);
+exports.default = routes;

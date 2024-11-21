@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var DashboardController = require("../controllers/DashbardController");
+var routes = express_1.default.Router();
+routes.get("/dashboard", isAuth_1.default, DashboardController.index);
+routes.get("/dashboard/ticketsUsers", DashboardController.reportsUsers);
+routes.get("/dashboard/ticketsDay", DashboardController.reportsDay);
+exports.default = routes;

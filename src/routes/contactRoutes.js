@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var ContactController = require("../controllers/ContactController");
+var ImportPhoneContactsController = require("../controllers/ImportPhoneContactsController");
+var contactRoutes = express_1.default.Router();
+contactRoutes.post("/contacts/import", isAuth_1.default, ImportPhoneContactsController.store);
+contactRoutes.get("/contacts", isAuth_1.default, ContactController.index);
+contactRoutes.get("/contacts/list", isAuth_1.default, ContactController.list);
+contactRoutes.get("/contacts/:contactId", isAuth_1.default, ContactController.show);
+contactRoutes.post("/contacts", isAuth_1.default, ContactController.store);
+contactRoutes.put("/contacts/:contactId", isAuth_1.default, ContactController.update);
+contactRoutes.delete("/contacts/:contactId", isAuth_1.default, ContactController.remove);
+exports.default = contactRoutes;

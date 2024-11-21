@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var CampaignSettingController = require("../controllers/CampaignSettingController");
+var multer_1 = require("multer");
+var upload_1 = require("../config/upload");
+var upload = (0, multer_1.default)(upload_1.default);
+var routes = express_1.default.Router();
+routes.get("/campaign-settings", isAuth_1.default, CampaignSettingController.index);
+routes.post("/campaign-settings", isAuth_1.default, CampaignSettingController.store);
+exports.default = routes;

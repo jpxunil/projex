@@ -1,0 +1,15 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var isAuth_1 = require("../middleware/isAuth");
+var ChatController = require("../controllers/ChatController");
+var routes = express_1.default.Router();
+routes.get("/chats", isAuth_1.default, ChatController.index);
+routes.get("/chats/:id", isAuth_1.default, ChatController.show);
+routes.get("/chats/:id/messages", isAuth_1.default, ChatController.messages);
+routes.post("/chats/:id/messages", isAuth_1.default, ChatController.saveMessage);
+routes.post("/chats/:id/read", isAuth_1.default, ChatController.checkAsRead);
+routes.post("/chats", isAuth_1.default, ChatController.store);
+routes.put("/chats/:id", isAuth_1.default, ChatController.update);
+routes.delete("/chats/:id", isAuth_1.default, ChatController.remove);
+exports.default = routes;

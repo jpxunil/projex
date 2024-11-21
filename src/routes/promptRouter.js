@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var express_1 = require("express");
+var PromptController = require("../controllers/PromptController");
+var isAuth_1 = require("../middleware/isAuth");
+var promptRoutes = (0, express_1.Router)();
+promptRoutes.get("/prompt", isAuth_1.default, PromptController.index);
+promptRoutes.post("/prompt", isAuth_1.default, PromptController.store);
+promptRoutes.get("/prompt/:promptId", isAuth_1.default, PromptController.show);
+promptRoutes.put("/prompt/:promptId", isAuth_1.default, PromptController.update);
+promptRoutes.delete("/prompt/:promptId", isAuth_1.default, PromptController.remove);
+exports.default = promptRoutes;
